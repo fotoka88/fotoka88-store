@@ -276,22 +276,34 @@ console.log("FOTOKA88 terhubung dengan Supabase");
 
   try {
     const { data, error } = await supabaseClient
+    
+(async function testSupabase() {
+  const status = document.createElement("div");
+
+  status.style.cssText =
+    "padding:12px;margin:15px;background:#222;color:white;text-align:center;border-radius:8px;";
+
+  status.textContent = "Sedang menguji koneksi...";
+
+  document.body.prepend(status);
+
+  try {
+    const { data, error } = await supabaseClient
       .from("albums")
       .select("id")
       .limit(1);
 
     if (error) {
       status.textContent = "ERROR SUPABASE: " + error.message;
-      console.error(error);
     } else {
       status.textContent =
         "BERHASIL! Database FOTOKA88 terhubung.";
     }
   } catch (err) {
     status.textContent = "ERROR: " + err.message;
-    console.error(err);
   }
 })();
+
 
 </script>
 

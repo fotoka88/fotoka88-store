@@ -255,74 +255,30 @@ function demo(){
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
-const SUPABASE_URL = "sb_secret_9E8WUkGCs0QWaeGy19Xtdg_XAwZAOaT";
-const SUPABASE_KEY = "sb_publishable_osRyjkZUqFDKoWBZs4p3Vg_A9CnxMMw";
+const SUPABASE_URL = "ISI_PROJECT_URL";
+const SUPABASE_KEY = "ISI_PUBLISHABLE_KEY";
 
 const supabaseClient = window.supabase.createClient(
   SUPABASE_URL,
   SUPABASE_KEY
 );
 
-console.log("FOTOKA88 terhubung dengan Supabase");
-(async function testSupabase() {
+(async function () {
   const status = document.createElement("div");
-
-  status.style.cssText =
-    "padding:15px;margin:15px;background:#222;color:white;border-radius:8px;";
-
-  status.textContent = "Sedang menguji koneksi...";
-
-  document.body.prepend(status);
-
-  try {
-    const { data, error } = await supabaseClient
-    
-(async function testSupabase() {
-  const status = document.createElement("div");
-
   status.style.cssText =
     "padding:12px;margin:15px;background:#222;color:white;text-align:center;border-radius:8px;";
-
-  status.textContent = "Sedang menguji koneksi...";
-
+  status.textContent = "Menghubungkan database...";
   document.body.prepend(status);
 
-  try {
-    const { data, error } = await supabaseClient
-      .from("albums")
-      .select("id")
-      .limit(1);
-
-    if (error) {
-      status.textContent = "ERROR SUPABASE: " + error.message;
-    } else {
-      status.textContent =
-        "BERHASIL! Database FOTOKA88 terhubung.";
-    }
-  } catch (err) {
-    status.textContent = "ERROR: " + err.message;
-  }
-})();
-
-
-</script>
-
-(async function testSupabase() {
-  const { data, error } = await supabaseClient
+  const { error } = await supabaseClient
     .from("albums")
     .select("id")
     .limit(1);
 
-  const status = document.createElement("div");
-  status.style.cssText =
-    "padding:12px;margin:15px;background:#222;color:white;text-align:center;border-radius:8px;";
-
   status.textContent = error
-    ? "Koneksi database gagal. Periksa pengaturan Supabase."
+    ? "Koneksi gagal: " + error.message
     : "FOTOKA88 berhasil terhubung ke database!";
-
-  document.body.prepend(status);
 })();
-
+</script>
 </body>
 </html>

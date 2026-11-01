@@ -1,0 +1,256 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080808">
+<title>FOTOKA88 | Photography Store</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:#090909;
+  color:#fff;
+  font-family:Arial,sans-serif;
+}
+header{
+  padding:20px 6%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid #292929;
+}
+.logo{
+  font-size:25px;
+  font-weight:900;
+  letter-spacing:2px;
+  color:#d9ad55;
+}
+nav a{
+  color:#ddd;
+  text-decoration:none;
+  margin-left:20px;
+  font-size:13px;
+}
+.hero{
+  padding:65px 7%;
+  background:linear-gradient(90deg,#080808,#17130b);
+}
+.hero small{color:#d9ad55;letter-spacing:3px}
+.hero h1{
+  font-size:clamp(35px,7vw,65px);
+  margin:15px 0;
+}
+.hero h1 span{color:#d9ad55}
+.hero p{color:#aaa;line-height:1.7}
+.btn{
+  display:inline-block;
+  background:#d9ad55;
+  color:#111;
+  padding:13px 22px;
+  border-radius:4px;
+  text-decoration:none;
+  font-weight:bold;
+  margin-top:12px;
+}
+.section{padding:35px 6%}
+.section h2{font-size:25px}
+.section p{color:#999}
+.filters{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin:22px 0;
+}
+.filters button{
+  background:#191919;
+  color:white;
+  border:1px solid #444;
+  padding:10px 16px;
+  border-radius:20px;
+  cursor:pointer;
+}
+.filters button.active{
+  background:#d9ad55;
+  color:#111;
+  border-color:#d9ad55;
+}
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:17px;
+}
+.photo{
+  background:#171717;
+  border-radius:8px;
+  overflow:hidden;
+}
+.image{
+  position:relative;
+  height:220px;
+  overflow:hidden;
+}
+.image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.watermark{
+  position:absolute;
+  inset:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:#fff9;
+  font-weight:bold;
+  font-size:22px;
+  transform:rotate(-25deg);
+  text-shadow:0 1px 4px #000;
+  pointer-events:none;
+}
+.info{padding:14px}
+.info h3{margin:0 0 8px;font-size:16px}
+.info p{font-size:12px;color:#aaa}
+.price{
+  color:#d9ad55;
+  font-weight:bold;
+  margin:12px 0;
+}
+.buy{
+  width:100%;
+  padding:11px;
+  border:0;
+  border-radius:4px;
+  background:#d9ad55;
+  color:#111;
+  font-weight:bold;
+  cursor:pointer;
+}
+.hidden{display:none}
+footer{
+  text-align:center;
+  padding:30px;
+  border-top:1px solid #292929;
+  color:#888;
+  font-size:12px;
+}
+@media(max-width:700px){
+  header{padding:17px 5%}
+  nav a{margin-left:10px;font-size:11px}
+  .gallery{grid-template-columns:repeat(2,1fr);gap:10px}
+  .image{height:150px}
+  .info{padding:10px}
+  .info h3{font-size:13px}
+}
+@media(max-width:380px){
+  .gallery{grid-template-columns:1fr}
+  .image{height:220px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">FOTOKA88.</div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#gallery">Galeri</a>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <small>PROFESSIONAL PHOTOGRAPHY</small>
+  <h1>CAPTURE THE<br><span>MOMENT.</span></h1>
+  <p>
+    Temukan dan miliki momen terbaik Anda.
+    Galeri foto pertandingan dan kegiatan
+    bersama FOTOKA88.
+  </p>
+  <a href="#gallery" class="btn">LIHAT GALERI</a>
+</section>
+
+<section class="section" id="gallery">
+  <h2>Galeri Foto</h2>
+  <p>Pilih momen favorit Anda.</p>
+
+  <div class="filters">
+    <button class="active" onclick="filter('all',this)">Semua</button>
+    <button onclick="filter('football',this)">Sepak Bola</button>
+    <button onclick="filter('event',this)">Event</button>
+  </div>
+
+  <div class="gallery">
+
+    <article class="photo" data-category="football">
+      <div class="image">
+        <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=700" alt="Lapangan sepak bola">
+        <div class="watermark">FOTOKA88</div>
+      </div>
+      <div class="info">
+        <h3>Football Collection 01</h3>
+        <p>Sepak Bola · Foto contoh</p>
+        <div class="price">Mulai Rp5.000</div>
+        <button class="buy" onclick="demo()">LIHAT DETAIL</button>
+      </div>
+    </article>
+
+    <article class="photo" data-category="football">
+      <div class="image">
+        <img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=700" alt="Pertandingan sepak bola">
+        <div class="watermark">FOTOKA88</div>
+      </div>
+      <div class="info">
+        <h3>Football Collection 02</h3>
+        <p>Sepak Bola · Foto contoh</p>
+        <div class="price">Mulai Rp5.000</div>
+        <button class="buy" onclick="demo()">LIHAT DETAIL</button>
+      </div>
+    </article>
+
+    <article class="photo" data-category="event">
+      <div class="image">
+        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=700" alt="Acara">
+        <div class="watermark">FOTOKA88</div>
+      </div>
+      <div class="info">
+        <h3>Event Collection 01</h3>
+        <p>Event · Foto contoh</p>
+        <div class="price">Mulai Rp5.000</div>
+        <button class="buy" onclick="demo()">LIHAT DETAIL</button>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<footer>
+  <div class="logo">FOTOKA88.</div>
+  <p>Professional Photography & Digital Photo Store</p>
+  <p>© 2026 FOTOKA88. All Rights Reserved.</p>
+</footer>
+
+<script>
+function filter(category,button){
+  document.querySelectorAll('.filters button')
+    .forEach(b=>b.classList.remove('active'));
+  button.classList.add('active');
+
+  document.querySelectorAll('.photo').forEach(photo=>{
+    photo.classList.toggle(
+      'hidden',
+      category!=='all' &&
+      photo.dataset.category!==category
+    );
+  });
+}
+
+function demo(){
+  alert('Galeri contoh FOTOKA88. Fitur pembelian segera hadir.');
+}
+</script>
+
+</body>
+</html>

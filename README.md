@@ -1,2 +1,2 @@
-# fotoka88-store
+sb_publishable_osRyjkZUqFDKoWBZs4p3Vg_A9CnxMMw# fotoka88-store
 Website penjualan foto FOTOKA88

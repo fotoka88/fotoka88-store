@@ -266,5 +266,22 @@ const supabaseClient = window.supabase.createClient(
 console.log("FOTOKA88 terhubung dengan Supabase");
 </script>
 
+(async function testSupabase() {
+  const { data, error } = await supabaseClient
+    .from("albums")
+    .select("id")
+    .limit(1);
+
+  const status = document.createElement("div");
+  status.style.cssText =
+    "padding:12px;margin:15px;background:#222;color:white;text-align:center;border-radius:8px;";
+
+  status.textContent = error
+    ? "Koneksi database gagal. Periksa pengaturan Supabase."
+    : "FOTOKA88 berhasil terhubung ke database!";
+
+  document.body.prepend(status);
+})();
+
 </body>
 </html>
